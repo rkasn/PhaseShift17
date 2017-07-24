@@ -1,4 +1,4 @@
-package phaseshift.com.demophase.Interactor;
+package phaseshift.com.demophase.Events.Interactor;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

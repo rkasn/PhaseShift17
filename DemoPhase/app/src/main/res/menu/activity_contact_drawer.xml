@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Events"
+            android:title="Events" />
+        <item
+            android:id="@+id/Contact"
+            android:title="Contact" />
+        <item
+            android:id="@+id/Map"
+            android:title="Map" />
+        <item
+            android:id="@+id/AboutBMSCE"
+            android:title="About BMSCE" />
+        <item
+            android:id="@+id/AboutPS"
+            android:title="About PhaseShift" />
+    </group>
+</menu>

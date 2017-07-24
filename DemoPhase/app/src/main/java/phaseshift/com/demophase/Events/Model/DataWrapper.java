@@ -1,4 +1,4 @@
-package phaseshift.com.demophase.Model;
+package phaseshift.com.demophase.Events.Model;
 
 /**
  * Created by Shivam on 20-07-2017.

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {
@@ -14,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
     private final Runnable waitCallback = new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(SplashActivity.this, DepartmentActivity.class);
+            Intent intent = new Intent(SplashActivity.this, EventsActivity.class);
             startActivity(intent);
             finish();
         }

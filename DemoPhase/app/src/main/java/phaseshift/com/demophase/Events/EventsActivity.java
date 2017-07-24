@@ -1,4 +1,4 @@
-package phaseshift.com.demophase;
+package phaseshift.com.demophase.Events;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,16 +14,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import phaseshift.com.demophase.Interactor.CallBack;
-import phaseshift.com.demophase.Interactor.Manager;
-import phaseshift.com.demophase.databinding.AppBarDepartmentBinding;
+
+import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
+import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.Contact.ContactActivity;
+import phaseshift.com.demophase.Events.Interactor.CallBack;
+import phaseshift.com.demophase.Events.Interactor.Manager;
+import phaseshift.com.demophase.FilterActivity;
+import phaseshift.com.demophase.Map.MapsActivity;
+import phaseshift.com.demophase.R;
+import phaseshift.com.demophase.SplashIntroActivity;
+import phaseshift.com.demophase.databinding.AppBarEventBinding;
 
 
-public class DepartmentActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class EventsActivity extends AppCompatActivity implements EventsRouter,NavigationView.OnNavigationItemSelectedListener{
     public static Manager manager;
     Context context;
 
-    private AppBarDepartmentBinding binding;
+    private AppBarEventBinding binding;
 
     public static final String PREF_KEY_FIRST_START = "com.heinrichreimersoftware.materialintro.demo.PREF_KEY_FIRST_START";
     public static final int REQUEST_CODE_INTRO = 1;
@@ -33,7 +41,7 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
 
 
-        binding = DataBindingUtil.setContentView(this, R.layout.app_bar_department);
+        binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
 
         setSupportActionBar(binding.toolbar);
 
@@ -45,7 +53,7 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
             startActivityForResult(intent, REQUEST_CODE_INTRO);
         }
 
-        setContentView(R.layout.activity_department);
+        setContentView(R.layout.activity_event);
         context=this;
         manager = Manager.getInstance();
 
@@ -61,7 +69,7 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.department);
+        navigationView.setCheckedItem(R.id.Events);
 
 
         manager.CallBack(new CallBack() {
@@ -72,13 +80,13 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
 
             @Override
             public void failed() {
-                Toast toast = Toast.makeText(DepartmentActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(EventsActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT);
                 toast.show();
             }
 
             @Override
             public void noNet() {
-                Toast toast = Toast.makeText(DepartmentActivity.this, "No Internet", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(EventsActivity.this, "No Internet", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -103,7 +111,7 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_finish, menu);
+        getMenuInflater().inflate(R.menu.menu_event, menu);
         return true;
     }
 
@@ -114,15 +122,25 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.department) {
-//            goToMyUnit(this);
+        if (id == R.id.Events) {
+            goToEvents(this);
+            finish();
 
-        } else if (id == R.id.category) {
-//            goToProjects(context);
-        } else if (id == R.id.day) {
-//            goToProjectUpdate(context);
+        } else if (id == R.id.Contact) {
+            goToContact(context);
+            finish();
+        } else if (id == R.id.Map) {
+            goToMaps(context);
+            finish();
         }
-
+        else if (id == R.id.AboutBMSCE) {
+            goToAboutBMS(context);
+            finish();
+        }
+        else if (id == R.id.AboutPS) {
+            goToAboutPS(context);
+            finish();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -148,11 +166,45 @@ public class DepartmentActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_item_reset_first_start) {
-            PreferenceManager.getDefaultSharedPreferences(this).edit()
-                    .putBoolean(PREF_KEY_FIRST_START, true)
-                    .apply();
+//            PreferenceManager.getDefaultSharedPreferences(this).edit()
+//                    .putBoolean(PREF_KEY_FIRST_START, true)
+//                    .apply();
+            Intent intent= new Intent(this, FilterActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void goToMaps(Context context) {
+        Intent intent=new Intent(context, MapsActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void goToAboutBMS(Context context) {
+        Intent intent=new Intent(context, AboutBMSActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void goToContact(Context context) {
+        Intent intent=new Intent(context, ContactActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void goToAboutPS(Context context) {
+        Intent intent=new Intent(context, AboutPSActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void goToEvents(Context context) {
+        Intent intent=new Intent(context, EventsActivity.class);
+        startActivity(intent);
     }
 }

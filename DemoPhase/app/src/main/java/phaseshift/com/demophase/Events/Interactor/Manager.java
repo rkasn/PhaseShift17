@@ -1,9 +1,9 @@
-package phaseshift.com.demophase.Interactor;
+package phaseshift.com.demophase.Events.Interactor;
 
 /**
  * Created by Shivam on 20-07-2017.
  */
-import phaseshift.com.demophase.Model.DataWrapper;
+import phaseshift.com.demophase.Events.Model.DataWrapper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

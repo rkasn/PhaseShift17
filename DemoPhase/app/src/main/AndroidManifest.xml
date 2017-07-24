@@ -21,7 +21,24 @@
         <activity
             android:name=".SplashIntroActivity"
             android:theme="@style/Theme.Intro" />
-        <activity android:name=".DepartmentActivity" />
+        <activity android:name=".Events.EventsActivity" />
+        <activity
+            android:name=".Contact.ContactActivity"
+            android:label="@string/title_activity_contact"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AboutPS.AboutPSActivity"
+            android:label="@string/title_activity_about_ps"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AboutBMS.AboutBMSActivity"
+            android:label="@string/title_activity_about_bms"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Map.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".FilterActivity"></activity>
     </application>
 
 </manifest>
