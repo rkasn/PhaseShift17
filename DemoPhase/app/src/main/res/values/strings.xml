@@ -67,4 +67,6 @@
     <string name="title_activity_about_ps">AboutPSActivity</string>
     <string name="title_activity_about_bms">AboutBMSActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_filter">FilterActivity</string>
+    <string name="title_activity_basic">basicActivity</string>
 </resources>

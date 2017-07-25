@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_filter">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Category"
+                    android:textSize="25dp"
+                    android:textColor="@color/blackScreen"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/Category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_weight=".5">
+                        <RadioButton
+                            android:id="@+id/RB_events"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Events"
+                            android:layout_weight="0.5"
+                            style="@android:style/Widget.CompoundButton.CheckBox" />
+                        <RadioButton
+                            android:id="@+id/RB_workshops"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Workshops"
+                            android:layout_weight="0.5"
+                            style="@android:style/Widget.CompoundButton.CheckBox"/>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Day"
+                    android:textSize="25dp"
+                    android:textColor="@color/blackScreen"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/Day"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_weight=".5">
+
+                        <RadioButton
+                            android:id="@+id/RB_day1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Day 1"
+                            android:layout_weight="0.5"/>
+                        <RadioButton
+                            android:id="@+id/RB_day2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Day 2"
+                            android:layout_weight="0.5"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Department"
+                    android:textSize="25dp"
+                    android:textColor="@color/blackScreen"
+                    android:textStyle="bold" />
+                <RadioGroup
+                    android:id="@+id/Department"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="50dp">
+
+                    <RadioButton
+                        android:id="@+id/RB_arch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Architecture" />
+
+                    <RadioButton
+                        android:id="@+id/RB_biotech"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bio-Technology"/>
+                    <RadioButton
+                        android:id="@+id/RB_chemEgg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chemical Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_chem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chemistry"/>
+                    <RadioButton
+                        android:id="@+id/RB_civil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Civil Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_compApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Computer Applications"/>
+                    <RadioButton
+                        android:id="@+id/RB_compEgg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Computer Science and Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_eee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Electrical And Electronics Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_ece"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Electronics And Communication Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_iem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Industrial Engineeering And Management"/>
+                    <RadioButton
+                        android:id="@+id/RB_ise"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Information Science And Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_eie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Electronics and Instrumentation Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_math"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mathematics"/>
+                    <RadioButton
+                        android:id="@+id/RB_mech"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mechanical Engineering"/>
+                    <RadioButton
+                        android:id="@+id/RB_me"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Medical Electronics"/>
+
+                    <RadioButton
+                        android:id="@+id/RB_phys"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Physics"/>
+                    <RadioButton
+                        android:id="@+id/RB_tce"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Telecommunication Engineering" />
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/applyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_primary"
+                android:text="APPLY"
+                android:textColor="#ffffff"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

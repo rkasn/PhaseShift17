@@ -171,6 +171,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
 //                    .apply();
             Intent intent= new Intent(this, FilterActivity.class);
             startActivity(intent);
+           // onPause();
             return true;
         }
         return super.onOptionsItemSelected(item);

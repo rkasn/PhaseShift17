@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_primary_dark">#01B6AD</color>
-    <color name="color_primary">#0A4958</color>
+    <color name="color_primary">#0a4958</color>
     <color name="color_accent">#00E676</color>
     <color name="SplashScreen">#FFF</color>
     <color name="myColor">#04B407</color>
@@ -17,10 +17,11 @@
 
     <color name="color_dark_material_metaphor">#0277BD</color>
     <color name="color_dark_material_bold">#D81B60</color>
-    <color name="color_dark_material_motion">#4A148C</color>
+    <color name="color_dark_material_motion">#000000</color>
     <color name="color_dark_material_shadow">#BDBDBD</color>
     <color name="color_dark_permissions">#FBC02D</color>
     <color name="color_dark_custom_fragment_1">#BF360C</color>
     <color name="color_dark_custom_fragment_2">#303F9F</color>
     <color name="color_dark_canteen">#ebeef0</color>
+    <color name="blackScreen">#000000</color>
 </resources>
