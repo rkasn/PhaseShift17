@@ -1,5 +1,6 @@
 package phaseshift.com.demophase.Events;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -13,13 +14,20 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
 import phaseshift.com.demophase.Contact.ContactActivity;
+import phaseshift.com.demophase.EventDetailActivity;
 import phaseshift.com.demophase.Events.Interactor.CallBack;
 import phaseshift.com.demophase.Events.Interactor.Manager;
+import phaseshift.com.demophase.Events.Model.Data;
 import phaseshift.com.demophase.FilterActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
 import phaseshift.com.demophase.R;
@@ -30,7 +38,9 @@ import phaseshift.com.demophase.databinding.AppBarEventBinding;
 public class EventsActivity extends AppCompatActivity implements EventsRouter,NavigationView.OnNavigationItemSelectedListener{
     public static Manager manager;
     Context context;
-
+    ListView listView;
+    ArrayList<Data> data;
+    ProgressDialog progressDoalog;
     private AppBarEventBinding binding;
 
     public static final String PREF_KEY_FIRST_START = "com.heinrichreimersoftware.materialintro.demo.PREF_KEY_FIRST_START";
@@ -39,8 +49,11 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+        progressDoalog = new ProgressDialog(EventsActivity.this);
+        progressDoalog.setMessage("Its loading....");
+        progressDoalog.setTitle("ProgressDialog bar example");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDoalog.show();
         binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
 
         setSupportActionBar(binding.toolbar);
@@ -56,7 +69,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         setContentView(R.layout.activity_event);
         context=this;
         manager = Manager.getInstance();
-
+        manager.apiCall();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,26 +89,43 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             @Override
             public void success() {
                 CallMe();
+                progressDoalog.dismiss();
             }
 
             @Override
             public void failed() {
+                progressDoalog.dismiss();
                 Toast toast = Toast.makeText(EventsActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT);
                 toast.show();
             }
 
             @Override
             public void noNet() {
+                progressDoalog.dismiss();
                 Toast toast = Toast.makeText(EventsActivity.this, "No Internet", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
-        manager.apiCall();
+    }
+
+    private void populateListView() {
+        listView.setAdapter((new CustomAdapter(context,data)));
     }
 
     private void CallMe()
     {
+        final Data[] selectedData = new Data[1];
+        listView = (ListView) findViewById(R.id.eventListView);
+        data = manager.DataWrapper.getData();
+        populateListView();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedData[0] = manager.DataWrapper.getData().get(position);
+                goToEventDetails(context,selectedData[0]);
+            }
+        });
     }
 
     @Override
@@ -206,6 +236,13 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     @Override
     public void goToEvents(Context context) {
         Intent intent=new Intent(context, EventsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void goToEventDetails(Context context, Data event) {
+        Intent intent = new Intent(context,EventDetailActivity.class);
+        intent.putExtra("event",event);
         startActivity(intent);
     }
 }

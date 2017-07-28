@@ -4,6 +4,9 @@ package phaseshift.com.demophase.Events.Model;
  * Created by Shivam on 20-07-2017.
  */
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -11,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Rohan on 18-07-2017.
  */
 
-public class Data {
+public class Data implements Parcelable{
     @SerializedName("category")
     @Expose
     private String category;
@@ -166,4 +169,60 @@ public class Data {
     public void setPhone_two(String phone_two) {
         this.phone_two = phone_two;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.category);
+        dest.writeString(this.name_of_event);
+        dest.writeString(this.registration_amt);
+        dest.writeString(this.description);
+        dest.writeString(this.winner);
+        dest.writeString(this.runner_up);
+        dest.writeString(this.time);
+        dest.writeString(this.day);
+        dest.writeString(this.department);
+        dest.writeString(this.venue);
+        dest.writeString(this.coordinator_one);
+        dest.writeString(this.phone_one);
+        dest.writeString(this.coodinator_two);
+        dest.writeString(this.phone_two);
+    }
+
+    public Data() {
+    }
+
+    protected Data(Parcel in) {
+        this.category = in.readString();
+        this.name_of_event = in.readString();
+        this.registration_amt = in.readString();
+        this.description = in.readString();
+        this.winner = in.readString();
+        this.runner_up = in.readString();
+        this.time = in.readString();
+        this.day = in.readString();
+        this.department = in.readString();
+        this.venue = in.readString();
+        this.coordinator_one = in.readString();
+        this.phone_one = in.readString();
+        this.coodinator_two = in.readString();
+        this.phone_two = in.readString();
+    }
+
+    public static final Creator<Data> CREATOR = new Creator<Data>() {
+        @Override
+        public Data createFromParcel(Parcel source) {
+            return new Data(source);
+        }
+
+        @Override
+        public Data[] newArray(int size) {
+            return new Data[size];
+        }
+    };
 }

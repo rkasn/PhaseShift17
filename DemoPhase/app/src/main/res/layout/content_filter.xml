@@ -41,20 +41,18 @@
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
                         android:layout_weight=".5">
-                        <RadioButton
-                            android:id="@+id/RB_events"
+                        <CheckBox
+                            android:id="@+id/CB_events"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Events"
-                            android:layout_weight="0.5"
-                            style="@android:style/Widget.CompoundButton.CheckBox" />
-                        <RadioButton
-                            android:id="@+id/RB_workshops"
+                            android:layout_weight="0.5"/>
+                        <CheckBox
+                            android:id="@+id/CB_workshops"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Workshops"
-                            android:layout_weight="0.5"
-                            style="@android:style/Widget.CompoundButton.CheckBox"/>
+                            android:layout_weight="0.5"/>
                     </RadioGroup>
 
                 </LinearLayout>
