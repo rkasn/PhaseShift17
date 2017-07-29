@@ -82,14 +82,14 @@
                         android:paddingBottom="5dp"
                         android:layout_weight=".5">
 
-                        <RadioButton
-                            android:id="@+id/RB_day1"
+                        <CheckBox
+                            android:id="@+id/CB_day1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Day 1"
                             android:layout_weight="0.5"/>
-                        <RadioButton
-                            android:id="@+id/RB_day2"
+                        <CheckBox
+                            android:id="@+id/CB_day2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Day 2"
@@ -113,90 +113,90 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="50dp">
 
-                    <RadioButton
-                        android:id="@+id/RB_arch"
+                    <CheckBox
+                        android:id="@+id/CB_arch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Architecture" />
 
-                    <RadioButton
-                        android:id="@+id/RB_biotech"
+                    <CheckBox
+                        android:id="@+id/CB_biotech"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Bio-Technology"/>
-                    <RadioButton
-                        android:id="@+id/RB_chemEgg"
+                    <CheckBox
+                        android:id="@+id/CB_chemEgg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Chemical Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_chem"
+                    <CheckBox
+                        android:id="@+id/CB_chem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Chemistry"/>
-                    <RadioButton
-                        android:id="@+id/RB_civil"
+                    <CheckBox
+                        android:id="@+id/CB_civil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Civil Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_compApp"
+                    <CheckBox
+                        android:id="@+id/CB_compApp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Computer Applications"/>
-                    <RadioButton
-                        android:id="@+id/RB_compEgg"
+                    <CheckBox
+                        android:id="@+id/CB_compEgg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Computer Science and Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_eee"
+                    <CheckBox
+                        android:id="@+id/CB_eee"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Electrical And Electronics Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_ece"
+                    <CheckBox
+                        android:id="@+id/CB_ece"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Electronics And Communication Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_iem"
+                    <CheckBox
+                        android:id="@+id/CB_iem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Industrial Engineeering And Management"/>
-                    <RadioButton
-                        android:id="@+id/RB_ise"
+                    <CheckBox
+                        android:id="@+id/CB_ise"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Information Science And Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_eie"
+                    <CheckBox
+                        android:id="@+id/CB_eie"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Electronics and Instrumentation Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_math"
+                    <CheckBox
+                        android:id="@+id/CB_math"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Mathematics"/>
-                    <RadioButton
-                        android:id="@+id/RB_mech"
+                    <CheckBox
+                        android:id="@+id/CB_mech"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Mechanical Engineering"/>
-                    <RadioButton
-                        android:id="@+id/RB_me"
+                    <CheckBox
+                        android:id="@+id/CB_me"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Medical Electronics"/>
 
-                    <RadioButton
-                        android:id="@+id/RB_phys"
+                    <CheckBox
+                        android:id="@+id/CB_phys"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Physics"/>
-                    <RadioButton
-                        android:id="@+id/RB_tce"
+                    <CheckBox
+                        android:id="@+id/CB_tce"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Telecommunication Engineering" />
