@@ -60,6 +60,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_workshop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -74,6 +81,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -90,6 +104,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_day2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -104,6 +125,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -142,6 +170,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_biotech.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -175,6 +210,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -210,6 +252,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_chem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -243,6 +292,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -278,6 +334,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_comApp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -311,6 +374,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -346,6 +416,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_eee.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -379,6 +456,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -414,6 +498,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_iem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -447,6 +538,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -482,6 +580,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_eie.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -515,6 +620,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -550,6 +662,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_mech.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -583,6 +702,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -618,6 +744,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_phys.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -652,6 +785,13 @@ public class FilterActivity extends AppCompatActivity {
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
                 }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
             }
         });
         cb_tce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -685,6 +825,13 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if (isChecked == false) {
                     apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
                 }
             }
         });

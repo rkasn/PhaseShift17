@@ -15,8 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
 import phaseshift.com.demophase.Contact.ContactActivity;
+import phaseshift.com.demophase.DesAnimation;
 import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
 import phaseshift.com.demophase.R;
@@ -24,6 +28,7 @@ import phaseshift.com.demophase.R;
 public class AboutBMSActivity extends AppCompatActivity
         implements AboutBMSRouter,NavigationView.OnNavigationItemSelectedListener {
     Context context;
+    SliderLayout imageSlider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +47,30 @@ public class AboutBMSActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.AboutBMSCE);
+
+        imageSlider=(SliderLayout)findViewById(R.id.slider);
+        imageSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
+        imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        imageSlider.setCustomAnimation(new DesAnimation());
+        //imageSlider.setPresetTransformer(SliderLayout.Transformer.Stack);
+        imageSlider.setDuration(3000);
+
+        DefaultSliderView textSliderView = new DefaultSliderView(this);
+        textSliderView.image(R.drawable.bmsce);
+
+        imageSlider.addSlider(textSliderView);
+
+        DefaultSliderView textSliderView2 = new DefaultSliderView(this);
+        textSliderView2.image(R.drawable.splash_logo);
+
+        imageSlider.addSlider(textSliderView2);
+
+        DefaultSliderView textSliderView3 = new DefaultSliderView(this);
+        textSliderView2.image(R.drawable.app_logo);
+
+        imageSlider.addSlider(textSliderView3);
+
+
     }
 
     @Override

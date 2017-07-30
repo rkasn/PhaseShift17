@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,5 +7,51 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="phaseshift.com.demophase.AboutPS.AboutPSActivity"
     tools:showIn="@layout/app_bar_about_ps">
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
-</android.support.constraint.ConstraintLayout>
+        <com.daimajia.slider.library.SliderLayout
+            android:layout_width="match_parent"
+            android:id="@+id/slider"
+            android:layout_height="200dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+        </com.daimajia.slider.library.SliderLayout>
+
+        <TextView
+            android:id="@+id/text_abps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="About PhaseShift"
+            android:textAlignment="viewStart"
+            android:textColor="@color/blackScreen"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_abps_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="  Phase Shift is the annual technical symposium of BMSCE. The motive behind this symposium has primarily been to develop inquisition, a better scientific temper and the desire to consume knowledge, and be able to apply both knowledge and the relevant skills to produce masterpieces well beyond our time. Phase Shift is a collaborative effort of different departments and student fora/clubs of the institution. It aims at enhancing the level of technical knowledge in the student community, and ultimately strive to bridge the gap between technical corporate organizations and students at the institutional level. It is essential to formulate new goals, new perspectives and new directions to enhance learning, exploring new opportunities, and to develop skills in an ever changing world. A symposium of this scale is organized entirely by a dedicated student body under the able guidance of faculty.  The fourth edition of Phase Shift will be held on the 15th and 16th of September, 2017. Over the span of two days, students will witness a competitive and collaborative atmosphere of technical competitions, hands-on training, workshops based on trending technology, talks by eminent professors and seminars by industry professionals/experts."
+            android:textAlignment="textStart"
+            android:textColor="@color/blackScreen"
+            android:textSize="12dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</ScrollView>

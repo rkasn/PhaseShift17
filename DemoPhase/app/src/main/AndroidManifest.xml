@@ -47,10 +47,6 @@
             android:theme="@style/AppTheme"
             android:parentActivityName=".Events.EventsActivity"/>
         <activity
-            android:name=".basicActivity"
-            android:label="@string/title_activity_basic"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".EventDetailActivity"
             android:label="Event Details"
             android:theme="@style/AppTheme"
