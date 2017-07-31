@@ -1,5 +1,6 @@
 package phaseshift.com.demophase.Map;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.Map;
 
@@ -24,9 +35,9 @@ import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.R;
 
 public class MapsActivity extends AppCompatActivity
-        implements MapRouter,NavigationView.OnNavigationItemSelectedListener {
+        implements MapRouter,NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
     Context context;
-
+    GoogleMap map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +56,33 @@ public class MapsActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.Map);
+
+        if(googleServiceAvailable())
+        {
+            Toast.makeText(this,"Connected",Toast.LENGTH_LONG).show();
+            initMap();
+        }
+    }
+    private void initMap()
+    {
+        MapFragment mapFragment=(MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(this);
+    }
+    public boolean googleServiceAvailable(){
+        GoogleApiAvailability api=GoogleApiAvailability.getInstance();
+        int isAvailable=api.isGooglePlayServicesAvailable(this);
+        if(isAvailable == ConnectionResult.SUCCESS)
+            return true;
+        else if(api.isUserResolvableError(isAvailable))
+        {
+            Dialog dialog=api.getErrorDialog(this,isAvailable,0);
+            dialog.show();
+        }
+        else
+        {
+            Toast.makeText(this,"Cannot connect to play services",Toast.LENGTH_LONG).show();
+        }
+        return false;
     }
 
     @Override
@@ -139,5 +177,25 @@ public class MapsActivity extends AppCompatActivity
     public void goToEvents(Context context) {
         Intent intent=new Intent(context, EventsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap)
+    {
+        map=googleMap;
+        goToLocationZoom(12.9416079,77.566883,17);
+    }
+
+    private void goToLocation(double lat, double l)
+    {
+        LatLng ll=new LatLng(lat,l);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(ll);
+        map.moveCamera(cameraUpdate);
+    }
+    private void goToLocationZoom(double lat, double l,float zoom)
+    {
+        LatLng ll=new LatLng(lat,l);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ll,zoom);
+        map.moveCamera(cameraUpdate);
     }
 }
