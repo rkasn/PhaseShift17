@@ -35,30 +35,33 @@
         <activity
             android:name=".Events.EventsActivity"
             android:label="Events"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
         <activity
-            android:name=".Contact.ContactActivity"
-            android:label="@string/title_activity_contact"
+            android:name=".Team.TeamActivity"
+            android:label="Team"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AboutPS.AboutPSActivity"
-            android:label="@string/title_activity_about_ps"
+            android:label="PhaseShift"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AboutBMS.AboutBMSActivity"
-            android:label="@string/title_activity_about_bms"
+            android:label="BMSCE"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Map.MapsActivity"
-            android:label="@string/title_activity_maps"
+            android:label="Map"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FilterActivity"
-            android:label="@string/title_activity_filter"
+            android:label="Filter"
             android:theme="@style/AppTheme"
             android:parentActivityName=".Events.EventsActivity"/>
         <activity
-            android:name=".EventDetailActivity"
+            android:name=".EventDetail.EventDetailActivity"
             android:label="Event Details"
             android:theme="@style/AppTheme"
             android:parentActivityName=".Events.EventsActivity"></activity>

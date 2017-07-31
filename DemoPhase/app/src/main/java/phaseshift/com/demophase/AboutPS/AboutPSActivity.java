@@ -3,23 +3,19 @@ package phaseshift.com.demophase.AboutPS;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
-import phaseshift.com.demophase.Contact.ContactActivity;
+import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.DesAnimation;
 import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
@@ -114,8 +110,8 @@ Context context;
             goToEvents(this);
             finish();
 
-        } else if (id == R.id.Contact) {
-            goToContact(context);
+        } else if (id == R.id.Team) {
+            goToTeam(context);
             finish();
         } else if (id == R.id.Map) {
             goToMaps(context);
@@ -150,8 +146,8 @@ Context context;
     }
 
     @Override
-    public void goToContact(Context context) {
-        Intent intent=new Intent(context, ContactActivity.class);
+    public void goToTeam(Context context) {
+        Intent intent=new Intent(context, TeamActivity.class);
         startActivity(intent);
     }
 

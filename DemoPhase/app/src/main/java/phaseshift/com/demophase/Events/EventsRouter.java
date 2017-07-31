@@ -11,7 +11,7 @@ import phaseshift.com.demophase.Events.Model.Data;
 public interface EventsRouter {
     public void goToMaps(Context context);
     public void goToAboutBMS(Context context);
-    public void goToContact(Context context);
+    public void goToTeam(Context context);
     public void goToAboutPS(Context context);
     public void goToEvents(Context context);
     public void goToEventDetails(Context context, Data event);

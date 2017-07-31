@@ -1,14 +1,17 @@
-package phaseshift.com.demophase;
+package phaseshift.com.demophase.EventDetail;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
+import phaseshift.com.demophase.DesAnimation;
 import phaseshift.com.demophase.Events.Model.Data;
+import phaseshift.com.demophase.R;
 
 public class EventDetailActivity extends AppCompatActivity {
 
@@ -32,6 +35,8 @@ public class EventDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_detail);
 
+
+
         data = new  Data();
 
         data = getIntent().getParcelableExtra("event");
@@ -53,10 +58,10 @@ public class EventDetailActivity extends AppCompatActivity {
 
         DefaultSliderView SliderView1 = new DefaultSliderView(this);
         SliderView1
-                .image(R.drawable.app_icon);
+                .image(R.drawable.slider_1);
         DefaultSliderView SliderView2 = new DefaultSliderView(this);
         SliderView2
-                .image(R.drawable.app_logo);
+                .image(R.drawable.slider_2);
 
         imageSlider.addSlider(SliderView1);
         imageSlider.addSlider(SliderView2);
