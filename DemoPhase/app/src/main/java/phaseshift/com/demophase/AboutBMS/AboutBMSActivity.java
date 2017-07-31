@@ -57,12 +57,12 @@ public class AboutBMSActivity extends AppCompatActivity
         imageSlider.addSlider(textSliderView);
 
         DefaultSliderView textSliderView2 = new DefaultSliderView(this);
-        textSliderView2.image(R.drawable.splash_logo);
+        textSliderView2.image(R.drawable.slider_1);
 
         imageSlider.addSlider(textSliderView2);
 
         DefaultSliderView textSliderView3 = new DefaultSliderView(this);
-        textSliderView2.image(R.drawable.app_logo);
+        textSliderView2.image(R.drawable.slider_2);
 
         imageSlider.addSlider(textSliderView3);
 

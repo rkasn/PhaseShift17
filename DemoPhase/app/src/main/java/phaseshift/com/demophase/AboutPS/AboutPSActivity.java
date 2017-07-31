@@ -51,12 +51,12 @@ Context context;
         imageSlider.setDuration(3000);
 
         DefaultSliderView textSliderView = new DefaultSliderView(this);
-        textSliderView.image(R.drawable.app_icon);
+        textSliderView.image(R.drawable.slider_1);
 
         imageSlider.addSlider(textSliderView);
 
         DefaultSliderView textSliderView2 = new DefaultSliderView(this);
-        textSliderView2.image(R.drawable.white_logo);
+        textSliderView2.image(R.drawable.slider_2);
 
         imageSlider.addSlider(textSliderView2);
 

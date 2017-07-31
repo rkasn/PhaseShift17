@@ -44,14 +44,13 @@
             android:id="@+id/text_abps_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="casual"
+            android:fontFamily="sans-serif"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:text="  BMS College of Engineering, Bengaluru was founded in the year 1946 by Late Sri B.M. Sreenivasaiah, a great visionary and philanthropist and later nurtured by his illustrious son Late Sri B.S. Narayan. BMSCE is the first private sector initiative from the erstwhile state of Mysore towards engineering education in India. Started with only three undergraduate programmes, BMSCE today offers 12 undergraduate and 15 postgraduate programmes both in conventional and emerging areas. Fourteen of its departments are recognised as Research Centres offering PhD degree in Science, Engineering and Management.  Modernization, expansion and sophistication have not changed the basic philosophy of education at BMSCE, with continually stay put with the real and ever changing technologies."
             android:textAlignment="textStart"
             android:textColor="@color/blackScreen"
-            android:textSize="12dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold" />
+            android:textSize="12dp" />
     </LinearLayout>
 
 </ScrollView>
