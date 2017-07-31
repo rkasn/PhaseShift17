@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdate;
@@ -22,6 +23,8 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 
+=======
+>>>>>>> 964829243212f71489ed5fee08696205f1862408
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
