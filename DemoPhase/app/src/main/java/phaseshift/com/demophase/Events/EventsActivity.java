@@ -23,8 +23,8 @@ import java.util.ArrayList;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
-import phaseshift.com.demophase.Contact.ContactActivity;
-import phaseshift.com.demophase.EventDetailActivity;
+import phaseshift.com.demophase.Team.TeamActivity;
+import phaseshift.com.demophase.EventDetail.EventDetailActivity;
 import phaseshift.com.demophase.Events.Interactor.CallBack;
 import phaseshift.com.demophase.Events.Interactor.Manager;
 import phaseshift.com.demophase.Events.Model.Data;
@@ -156,8 +156,8 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             goToEvents(this);
             finish();
 
-        } else if (id == R.id.Contact) {
-            goToContact(context);
+        } else if (id == R.id.Team) {
+            goToTeam(context);
             finish();
         } else if (id == R.id.Map) {
             goToMaps(context);
@@ -222,8 +222,8 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     }
 
     @Override
-    public void goToContact(Context context) {
-        Intent intent=new Intent(context, ContactActivity.class);
+    public void goToTeam(Context context) {
+        Intent intent=new Intent(context, TeamActivity.class);
         startActivity(intent);
     }
 
