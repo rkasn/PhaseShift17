@@ -32,6 +32,7 @@ import phaseshift.com.demophase.FilterActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
 import phaseshift.com.demophase.R;
 import phaseshift.com.demophase.SplashIntroActivity;
+import phaseshift.com.demophase.WorkshopDetail.WorkshopDetailActivity;
 import phaseshift.com.demophase.databinding.AppBarEventBinding;
 
 
@@ -45,16 +46,40 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
 
     public static final String PREF_KEY_FIRST_START = "com.heinrichreimersoftware.materialintro.demo.PREF_KEY_FIRST_START";
     public static final int REQUEST_CODE_INTRO = 1;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
+        String x =""; x= getIntent().getStringExtra("Activity");
+        if (x.equalsIgnoreCase("splash"))
+        {
+            SplashWork();
+        }
+        else
+        {
+            FilterWork();
+        }
+    }
+
+    private void FilterWork()
+    {
+        setContentView(R.layout.activity_event);
+        String a,b,c;
+        a=getIntent().getStringExtra("Category");
+        b=getIntent().getStringExtra("Day");
+        c=getIntent().getStringExtra("Department");
+        Toast.makeText(context,"Working"+a+" "+b+" "+c,Toast.LENGTH_LONG);
+    }
+
+    private void SplashWork()
+    {
         progressDoalog = new ProgressDialog(EventsActivity.this);
         progressDoalog.setMessage("Its loading....");
         progressDoalog.setTitle("ProgressDialog bar example");
         progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDoalog.show();
-        binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
+       // binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
 
         setSupportActionBar(binding.toolbar);
 
@@ -83,7 +108,6 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.Events);
-
 
         manager.CallBack(new CallBack() {
             @Override
@@ -123,10 +147,15 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedData[0] = manager.DataWrapper.getData().get(position);
-                goToEventDetails(context,selectedData[0]);
+                if(selectedData[0].getCategory().equalsIgnoreCase("event"))
+                        goToEventDetails(context,selectedData[0]);
+                else
+                    goToWorkshopDetails(context,selectedData[0]);
             }
         });
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -243,6 +272,12 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     public void goToEventDetails(Context context, Data event) {
         Intent intent = new Intent(context,EventDetailActivity.class);
         intent.putExtra("event",event);
+        startActivity(intent);
+    }
+    public void goToWorkshopDetails(Context context, Data data)
+    {
+        Intent intent = new Intent(context,WorkshopDetailActivity.class);
+        intent.putExtra("event",data);
         startActivity(intent);
     }
 }
