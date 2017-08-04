@@ -1,5 +1,7 @@
 package phaseshift.com.demophase;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,11 +13,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import phaseshift.com.demophase.Events.EventsActivity;
+
 public class FilterActivity extends AppCompatActivity {
-    
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context=this;
         setContentView(R.layout.activity_filter);
 
 //        final CompoundButton category=(CompoundButton) findViewById(R.id.Category);
@@ -833,6 +838,66 @@ public class FilterActivity extends AppCompatActivity {
                 {
                     apply.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+        apply.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                String a="",b="",c="";
+
+                if(cb_events.isChecked()==true)
+                    a="Event";
+                if(cb_workshop.isChecked()==true)
+                    a="Workshop";
+
+
+                if(cb_day1.isChecked()==true)
+                    b="Day 1";
+                if(cb_day2.isChecked()==true)
+                    b="Day 2";
+
+                if(cb_arch.isChecked()==true)
+                    c="arch";
+                if(cb_biotech.isChecked()==true)
+                    c="biotech";
+                if(cb_chemEgg.isChecked()==true)
+                    c="chemEgg";
+                if(cb_chem.isChecked()==true)
+                    c="chem";
+                if(cb_civil.isChecked()==true)
+                    c="civil";
+                if(cb_comApp.isChecked()==true)
+                    c="comApp";
+                if(cb_compEgg.isChecked()==true)
+                    c="compEgg";
+                if(cb_eee.isChecked()==true)
+                    c="eee";
+                if(cb_ece.isChecked()==true)
+                    c="ece";
+                if(cb_iem.isChecked()==true)
+                    c="iem";
+                if(cb_ise.isChecked()==true)
+                    c="ise";
+                if(cb_eie.isChecked()==true)
+                    c="eie";
+                if(cb_math.isChecked()==true)
+                    c="math";
+                if(cb_mech.isChecked()==true)
+                    c="mech";
+                if(cb_phys.isChecked()==true)
+                    c="phys";
+                if(cb_me.isChecked()==true)
+                    c="me";
+
+                Intent intent=new Intent(context,EventsActivity.class);
+                //EventsActivity.getInstance().finish();
+                intent.putExtra("Activity","filter");
+                intent.putExtra("Category",a);
+                intent.putExtra("Day",b);
+                intent.putExtra("Department",c);
+                startActivity(intent);
+                finish();
+
             }
         });
 

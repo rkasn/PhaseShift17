@@ -3,17 +3,19 @@
     package="phaseshift.com.demophase">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <permission
         android:name="phaseshift.com.demophase.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature"/>
-    
-    <uses-permission android:name="phaseshift.com.demophase.permission.MAPS_RECEIVE"/>
-    <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES"/>
+        android:protectionLevel="signature" />
 
-    <uses-feature android:glEsVersion="0x00020000"
-        android:required="true"/>
+    <uses-permission android:name="phaseshift.com.demophase.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +23,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,11 +37,10 @@
             android:theme="@style/Theme.Intro" />
         <activity
             android:name=".Events.EventsActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="Events"
-            android:theme="@style/AppTheme.NoActionBar"
-
             android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|orientation"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Team.TeamActivity"
             android:label="Team"
@@ -58,19 +60,29 @@
         <activity
             android:name=".FilterActivity"
             android:label="Filter"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".Events.EventsActivity"/>
+            android:parentActivityName=".Events.EventsActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".EventDetail.EventDetailActivity"
             android:label="Event Details"
+            android:parentActivityName=".Events.EventsActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".WorkshopDetail.WorkshopDetailActivity"
+            android:label="Workshop Details"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".Events.EventsActivity"></activity>
-        <meta-data android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAsjN4s6q0cqUXhtxqThaGxguVGdsw-ZDY"/>
+            android:parentActivityName=".Events.EventsActivity">
 
-        <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAsjN4s6q0cqUXhtxqThaGxguVGdsw-ZDY" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+
     </application>
-
 
 </manifest>
