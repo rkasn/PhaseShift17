@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.SplashActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.EventDetail.EventDetailActivity;
 import phaseshift.com.demophase.Events.Interactor.CallBack;
@@ -51,50 +52,10 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
-        String x =""; x= getIntent().getStringExtra("Activity");
-        if (x.equalsIgnoreCase("splash"))
-        {
-            SplashWork();
-        }
-        else
-        {
-            FilterWork();
-        }
-    }
-
-    private void FilterWork()
-    {
-        setContentView(R.layout.activity_event);
-        String a,b,c;
-        a=getIntent().getStringExtra("Category");
-        b=getIntent().getStringExtra("Day");
-        c=getIntent().getStringExtra("Department");
-        Toast.makeText(context,"Working"+a+" "+b+" "+c,Toast.LENGTH_LONG);
-    }
-
-    private void SplashWork()
-    {
-        progressDoalog = new ProgressDialog(EventsActivity.this);
-        progressDoalog.setMessage("Its loading....");
-        progressDoalog.setTitle("ProgressDialog bar example");
-        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDoalog.show();
-       // binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
-
         setSupportActionBar(binding.toolbar);
-
-        boolean firstStart = PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean(PREF_KEY_FIRST_START, true);
-
-        if (firstStart) {
-            Intent intent = new Intent(this, SplashIntroActivity.class);
-            startActivityForResult(intent, REQUEST_CODE_INTRO);
-        }
-
         setContentView(R.layout.activity_event);
+
         context=this;
-        manager = Manager.getInstance();
-        manager.apiCall();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -108,6 +69,46 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.Events);
+
+        if(getIntent().getStringExtra("Activity").equalsIgnoreCase("filter"))
+        {
+            filter();
+        }
+        else
+        {
+            SplashWork();
+        }
+
+    }
+
+    private void filter()
+    {
+
+    }
+
+    private void SplashWork()
+    {
+        progressDoalog = new ProgressDialog(EventsActivity.this);
+        progressDoalog.setMessage("Its loading....");
+        progressDoalog.setTitle("ProgressDialog bar example");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDoalog.show();
+       // binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
+
+
+
+        boolean firstStart = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean(PREF_KEY_FIRST_START, true);
+
+        if (firstStart) {
+            Intent intent = new Intent(this, SplashIntroActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_INTRO);
+        }
+
+
+        manager = Manager.getInstance();
+        manager.apiCall();
+
 
         manager.CallBack(new CallBack() {
             @Override
@@ -265,6 +266,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     @Override
     public void goToEvents(Context context) {
         Intent intent=new Intent(context, EventsActivity.class);
+        intent.putExtra("Activity","hello");
         startActivity(intent);
     }
 
