@@ -889,8 +889,8 @@ public class FilterActivity extends AppCompatActivity {
                 if(cb_me.isChecked()==true)
                     c="me";
 
+                EventsActivity.getInstance().finish();
                 Intent intent=new Intent(context,EventsActivity.class);
-                //EventsActivity.getInstance().finish();
                 intent.putExtra("Activity","filter");
                 intent.putExtra("Category",a);
                 intent.putExtra("Day",b);

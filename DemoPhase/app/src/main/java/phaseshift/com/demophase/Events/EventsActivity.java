@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
-import phaseshift.com.demophase.SplashActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.EventDetail.EventDetailActivity;
 import phaseshift.com.demophase.Events.Interactor.CallBack;
@@ -37,7 +36,7 @@ import phaseshift.com.demophase.WorkshopDetail.WorkshopDetailActivity;
 import phaseshift.com.demophase.databinding.AppBarEventBinding;
 
 
-public class EventsActivity extends AppCompatActivity implements EventsRouter,NavigationView.OnNavigationItemSelectedListener{
+public class EventsActivity extends AppCompatActivity implements EventsRouter,NavigationView.OnNavigationItemSelectedListener {
     public static Manager manager;
     Context context;
     ListView listView;
@@ -47,15 +46,37 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
 
     public static final String PREF_KEY_FIRST_START = "com.heinrichreimersoftware.materialintro.demo.PREF_KEY_FIRST_START";
     public static final int REQUEST_CODE_INTRO = 1;
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
-        setSupportActionBar(binding.toolbar);
-        setContentView(R.layout.activity_event);
 
-        context=this;
+    static EventsActivity e;
+
+    public static EventsActivity getInstance() {
+        return e;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        progressDoalog = new ProgressDialog(EventsActivity.this);
+        progressDoalog.setMessage("Its loading....");
+        progressDoalog.setTitle("ProgressDialog bar example");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDoalog.show();
+        binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
+
+        setSupportActionBar(binding.toolbar);
+
+        boolean firstStart = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean(PREF_KEY_FIRST_START, true);
+
+        if (firstStart) {
+            Intent intent = new Intent(this, SplashIntroActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_INTRO);
+        }
+
+        setContentView(R.layout.activity_event);
+        context = this;
+        manager = Manager.getInstance();
+        manager.apiCall();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -69,77 +90,50 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.Events);
+        e = this;
 
-        if(getIntent().getStringExtra("Activity").equalsIgnoreCase("filter"))
+        String x = getIntent().getStringExtra("Activity");
+        System.out.println(x);
+        if (x.equalsIgnoreCase("filter")==true)
         {
-            filter();
+            progressDoalog.dismiss();
+            Toast toast = Toast.makeText(EventsActivity.this, "Filter is Working", Toast.LENGTH_LONG);
+            toast.show();
+            selectedData=null;
         }
         else
         {
-            SplashWork();
+            manager.CallBack(new CallBack() {
+                @Override
+                public void success() {
+                    CallMe();
+                    progressDoalog.dismiss();
+                }
+
+                @Override
+                public void failed() {
+                    progressDoalog.dismiss();
+                    Toast toast = Toast.makeText(EventsActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+                @Override
+                public void noNet() {
+                    progressDoalog.dismiss();
+                    Toast toast = Toast.makeText(EventsActivity.this, "No Internet", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            });
         }
-
-    }
-
-    private void filter()
-    {
-
-    }
-
-    private void SplashWork()
-    {
-        progressDoalog = new ProgressDialog(EventsActivity.this);
-        progressDoalog.setMessage("Its loading....");
-        progressDoalog.setTitle("ProgressDialog bar example");
-        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDoalog.show();
-       // binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
-
-
-
-        boolean firstStart = PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean(PREF_KEY_FIRST_START, true);
-
-        if (firstStart) {
-            Intent intent = new Intent(this, SplashIntroActivity.class);
-            startActivityForResult(intent, REQUEST_CODE_INTRO);
-        }
-
-
-        manager = Manager.getInstance();
-        manager.apiCall();
-
-
-        manager.CallBack(new CallBack() {
-            @Override
-            public void success() {
-                CallMe();
-                progressDoalog.dismiss();
-            }
-
-            @Override
-            public void failed() {
-                progressDoalog.dismiss();
-                Toast toast = Toast.makeText(EventsActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-
-            @Override
-            public void noNet() {
-                progressDoalog.dismiss();
-                Toast toast = Toast.makeText(EventsActivity.this, "No Internet", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
     }
 
     private void populateListView() {
         listView.setAdapter((new CustomAdapter(context,data)));
     }
-
+    Data[] selectedData;
     private void CallMe()
     {
-        final Data[] selectedData = new Data[1];
+        selectedData = new Data[1];
         listView = (ListView) findViewById(R.id.eventListView);
         data = manager.DataWrapper.getData();
         populateListView();
@@ -149,7 +143,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedData[0] = manager.DataWrapper.getData().get(position);
                 if(selectedData[0].getCategory().equalsIgnoreCase("event"))
-                        goToEventDetails(context,selectedData[0]);
+                    goToEventDetails(context,selectedData[0]);
                 else
                     goToWorkshopDetails(context,selectedData[0]);
             }
@@ -231,7 +225,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
 //                    .apply();
             Intent intent= new Intent(this, FilterActivity.class);
             startActivity(intent);
-           // onPause();
+            // onPause();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -266,7 +260,6 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     @Override
     public void goToEvents(Context context) {
         Intent intent=new Intent(context, EventsActivity.class);
-        intent.putExtra("Activity","hello");
         startActivity(intent);
     }
 
