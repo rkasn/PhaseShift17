@@ -852,10 +852,9 @@ public class FilterActivity extends AppCompatActivity {
 
 
                 if(cb_day1.isChecked()==true)
-                    b="Day 1";
+                    b="day1";
                 if(cb_day2.isChecked()==true)
-                    b="Day 2";
-
+                    b="day2";
                 if(cb_arch.isChecked()==true)
                     c="arch";
                 if(cb_biotech.isChecked()==true)

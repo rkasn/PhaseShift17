@@ -43,6 +43,10 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     ArrayList<Data> data;
     ProgressDialog progressDoalog;
     private AppBarEventBinding binding;
+    Data[] selectedData;
+    String cat;
+    String day;
+    String dept;
 
     public static final String PREF_KEY_FIRST_START = "com.heinrichreimersoftware.materialintro.demo.PREF_KEY_FIRST_START";
     public static final int REQUEST_CODE_INTRO = 1;
@@ -56,6 +60,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         progressDoalog = new ProgressDialog(EventsActivity.this);
         progressDoalog.setMessage("Its loading....");
         progressDoalog.setTitle("ProgressDialog bar example");
@@ -93,13 +98,18 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         e = this;
 
         String x = getIntent().getStringExtra("Activity");
-        System.out.println(x);
+        cat = getIntent().getStringExtra("Category");
+        day = getIntent().getStringExtra("Day");
+        dept = getIntent().getStringExtra("Department");
+
+        if(x == null)
+        {
+            x = "hell";
+        }
         if (x.equalsIgnoreCase("filter")==true)
         {
             progressDoalog.dismiss();
-            Toast toast = Toast.makeText(EventsActivity.this, "Filter is Working", Toast.LENGTH_LONG);
-            toast.show();
-            selectedData=null;
+            filter();
         }
         else
         {
@@ -127,17 +137,16 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         }
     }
 
-    private void populateListView() {
+    private void populateListView(ArrayList<Data> data) {
         listView.setAdapter((new CustomAdapter(context,data)));
     }
-    Data[] selectedData;
+
     private void CallMe()
     {
         selectedData = new Data[1];
-        listView = (ListView) findViewById(R.id.eventListView);
         data = manager.DataWrapper.getData();
-        populateListView();
-
+        listView = (ListView) findViewById(R.id.eventListView);
+        populateListView(data);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -149,9 +158,40 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             }
         });
     }
+    public void filter()
+    {
+//        Toast toast = Toast.makeText(EventsActivity.this, day+cat+dept, Toast.LENGTH_LONG);
+//        toast.show();
+        final ArrayList<Data> data1 = new ArrayList<Data>();
+        selectedData = new Data[1];
 
-
-
+        if(day.equalsIgnoreCase("day1"))
+        {
+            for(int i = 0;i<manager.DataWrapper.getData().size();i++) {
+                if (manager.DataWrapper.getData().get(i).getDay().equalsIgnoreCase("day1"))
+                    data1.add(manager.DataWrapper.getData().get(i));
+            }
+        }
+        if(day.equalsIgnoreCase("day2"))
+        {
+            for(int i = 0;i<manager.DataWrapper.getData().size();i++) {
+                if (manager.DataWrapper.getData().get(i).getDay().equalsIgnoreCase("day2"))
+                    data = manager.DataWrapper.getData();
+            }
+        }
+        listView = (ListView) findViewById(R.id.eventListView);
+        populateListView(data1);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedData[0] = data1.get(position);
+                if(selectedData[0].getCategory().equalsIgnoreCase("event"))
+                    goToEventDetails(context,selectedData[0]);
+                else
+                    goToWorkshopDetails(context,selectedData[0]);
+            }
+        });
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -226,6 +266,17 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             Intent intent= new Intent(this, FilterActivity.class);
             startActivity(intent);
             // onPause();
+            return true;
+        }
+
+        if (item.getItemId() == R.id.reset) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit()
+                    .putBoolean(PREF_KEY_FIRST_START, true)
+                    .apply();
+//            Intent intent= new Intent(this, FilterActivity.class);
+//            startActivity(intent);
+            onPause();
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

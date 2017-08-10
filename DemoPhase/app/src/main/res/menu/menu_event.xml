@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/reset"
+        android:title="Reset"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_item_reset_first_start"
         android:title="@string/title_menu_reset_first_start"
         android:icon="@drawable/ic_filter"
