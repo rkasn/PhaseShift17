@@ -4,16 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
-
+import me.relex.circleindicator.CircleIndicator;
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.DesAnimation;
@@ -23,8 +25,8 @@ import phaseshift.com.demophase.R;
 
 public class AboutPSActivity extends AppCompatActivity
         implements AboutPSRouter,NavigationView.OnNavigationItemSelectedListener {
-Context context;
-    SliderLayout imageSlider;
+    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,30 +45,36 @@ Context context;
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.AboutPS);
-        imageSlider=(SliderLayout)findViewById(R.id.slider);
-        imageSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
-        imageSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        imageSlider.setCustomAnimation(new DesAnimation());
-        //imageSlider.setPresetTransformer(SliderLayout.Transformer.Stack);
-        imageSlider.setDuration(3000);
 
-        DefaultSliderView textSliderView = new DefaultSliderView(this);
-        textSliderView.image(R.drawable.slider_1);
-
-        imageSlider.addSlider(textSliderView);
-
-        DefaultSliderView textSliderView2 = new DefaultSliderView(this);
-        textSliderView2.image(R.drawable.slider_2);
-
-        imageSlider.addSlider(textSliderView2);
-
-
+        ViewPager pager = (ViewPager)findViewById(R.id.viewPager);
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
+        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        indicator.setViewPager(pager);
     }
-    @Override
-    protected void onStop() {
-        imageSlider.stopAutoCycle();
-        super.onStop();
+
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int pos) {
+            switch(pos) {
+
+                case 0: return FirstFragment.newInstance("FirstFragment, Instance 1");
+                case 1: return SecondFragment.newInstance("SecondFragment, Instance 1");
+                case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
+                default: return ThirdFragment.newInstance("ThirdFragment, Default");
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
+
 
     @Override
     public void onBackPressed() {

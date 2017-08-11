@@ -139,25 +139,25 @@
                         android:layout_height="wrap_content"
                         android:text="Civil Engineering"/>
                     <CheckBox
-                        android:id="@+id/CB_compApp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Computer Applications"/>
-                    <CheckBox
                         android:id="@+id/CB_compEgg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Computer Science and Engineering"/>
+                    <CheckBox
+                        android:id="@+id/CB_ece"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Electronics And Communication Engineering"/>
                     <CheckBox
                         android:id="@+id/CB_eee"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Electrical And Electronics Engineering"/>
                     <CheckBox
-                        android:id="@+id/CB_ece"
+                        android:id="@+id/CB_eie"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Electronics And Communication Engineering"/>
+                        android:text="Electronics and Instrumentation Engineering"/>
                     <CheckBox
                         android:id="@+id/CB_iem"
                         android:layout_width="match_parent"
@@ -169,15 +169,20 @@
                         android:layout_height="wrap_content"
                         android:text="Information Science And Engineering"/>
                     <CheckBox
-                        android:id="@+id/CB_eie"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Electronics and Instrumentation Engineering"/>
-                    <CheckBox
                         android:id="@+id/CB_math"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Mathematics"/>
+                    <CheckBox
+                        android:id="@+id/CB_MBA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MBA"/>
+                    <CheckBox
+                        android:id="@+id/CB_compApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MCA"/>
                     <CheckBox
                         android:id="@+id/CB_mech"
                         android:layout_width="match_parent"

@@ -70,4 +70,5 @@
     <string name="title_activity_filter">FilterActivity</string>
     <string name="title_activity_basic">basicActivity</string>
     <string name="title_activity_workshop_detail">WorkshopDetailActivity</string>
+    <string name="title_activity_filtered_events">FilteredEvents</string>
 </resources>

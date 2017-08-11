@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import phaseshift.com.demophase.Events.EventsActivity;
+import phaseshift.com.demophase.FilteredEvents.FilteredEvents;
 
 public class FilterActivity extends AppCompatActivity {
     Context context;
@@ -50,6 +51,8 @@ public class FilterActivity extends AppCompatActivity {
         final CheckBox cb_me=(CheckBox)findViewById(R.id.CB_me);
         final CheckBox cb_phys=(CheckBox)findViewById(R.id.CB_phys);
         final CheckBox cb_tce=(CheckBox)findViewById(R.id.CB_tce);
+        final CheckBox cb_mba=(CheckBox)findViewById(R.id.CB_MBA);
+
 
         final boolean[] flag = {false};
         cb_events.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -67,7 +70,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -89,7 +92,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -111,7 +114,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -133,7 +136,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()|| cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -148,7 +151,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked()|| cb_mba.isChecked()|| cb_tce.isChecked()))
                 {
                     cb_biotech.setChecked(false);
                     cb_chemEgg.setChecked(false);
@@ -166,6 +169,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -177,7 +181,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -189,7 +193,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_chemEgg.setChecked(false);
@@ -207,6 +211,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -218,7 +223,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -230,7 +235,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -248,6 +253,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -259,7 +265,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -271,7 +277,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -289,6 +295,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -300,7 +307,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -312,7 +319,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -330,6 +337,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -341,7 +349,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -353,7 +361,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()||
                         cb_compEgg.isChecked()|| cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -371,6 +379,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -382,7 +391,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -394,7 +403,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -412,6 +421,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -423,7 +433,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -435,7 +445,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -453,6 +463,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -464,7 +475,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -476,7 +487,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -494,7 +505,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
-
+                    cb_mba.setChecked(false);
                     apply.setVisibility(View.VISIBLE);
                 }
                 else if (isChecked == true) {
@@ -505,7 +516,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -517,7 +528,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -535,7 +546,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
-
+                    cb_mba.setChecked(false);
                     apply.setVisibility(View.VISIBLE);
                 }
                 else if (isChecked == true) {
@@ -546,7 +557,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -558,7 +569,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -576,6 +587,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -587,7 +599,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()|| cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -599,7 +611,7 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
                 {
                     cb_arch.setChecked(false);
                     cb_biotech.setChecked(false);
@@ -617,6 +629,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
                     cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
 
                     apply.setVisibility(View.VISIBLE);
                 }
@@ -628,7 +641,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()|| cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -640,6 +653,216 @@ public class FilterActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
+                {
+                    cb_arch.setChecked(false);
+                    cb_biotech.setChecked(false);
+                    cb_chemEgg.setChecked(false);
+                    cb_chem.setChecked(false);
+                    cb_civil.setChecked(false);
+                    cb_comApp.setChecked(false);
+                    cb_compEgg.setChecked(false);
+                    cb_eee.setChecked(false);
+                    cb_ece.setChecked(false);
+                    cb_iem.setChecked(false);
+                    cb_ise.setChecked(false);
+                    cb_eie.setChecked(false);
+                    cb_mech.setChecked(false);
+                    cb_me.setChecked(false);
+                    cb_phys.setChecked(false);
+                    cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
+
+                    apply.setVisibility(View.VISIBLE);
+                }
+                else if (isChecked == true) {
+                    apply.setVisibility(View.VISIBLE);
+                }
+                if (isChecked == false) {
+                    apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()|| cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cb_mech.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
+                {
+                    cb_arch.setChecked(false);
+                    cb_biotech.setChecked(false);
+                    cb_chemEgg.setChecked(false);
+                    cb_chem.setChecked(false);
+                    cb_civil.setChecked(false);
+                    cb_comApp.setChecked(false);
+                    cb_compEgg.setChecked(false);
+                    cb_eee.setChecked(false);
+                    cb_ece.setChecked(false);
+                    cb_iem.setChecked(false);
+                    cb_ise.setChecked(false);
+                    cb_eie.setChecked(false);
+                    cb_math.setChecked(false);
+                    cb_me.setChecked(false);
+                    cb_phys.setChecked(false);
+                    cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
+
+                    apply.setVisibility(View.VISIBLE);
+                }
+                else if (isChecked == true) {
+                    apply.setVisibility(View.VISIBLE);
+                }
+                if (isChecked == false) {
+                    apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cb_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
+                {
+                    cb_arch.setChecked(false);
+                    cb_biotech.setChecked(false);
+                    cb_chemEgg.setChecked(false);
+                    cb_chem.setChecked(false);
+                    cb_civil.setChecked(false);
+                    cb_comApp.setChecked(false);
+                    cb_compEgg.setChecked(false);
+                    cb_eee.setChecked(false);
+                    cb_ece.setChecked(false);
+                    cb_iem.setChecked(false);
+                    cb_ise.setChecked(false);
+                    cb_eie.setChecked(false);
+                    cb_math.setChecked(false);
+                    cb_mech.setChecked(false);
+                    cb_phys.setChecked(false);
+                    cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
+
+                    apply.setVisibility(View.VISIBLE);
+                }
+                else if (isChecked == true) {
+                    apply.setVisibility(View.VISIBLE);
+                }
+                if (isChecked == false) {
+                    apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cb_phys.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_tce.isChecked() || cb_mba.isChecked()))
+                {
+                    cb_arch.setChecked(false);
+                    cb_biotech.setChecked(false);
+                    cb_chemEgg.setChecked(false);
+                    cb_chem.setChecked(false);
+                    cb_civil.setChecked(false);
+                    cb_comApp.setChecked(false);
+                    cb_compEgg.setChecked(false);
+                    cb_eee.setChecked(false);
+                    cb_ece.setChecked(false);
+                    cb_iem.setChecked(false);
+                    cb_ise.setChecked(false);
+                    cb_eie.setChecked(false);
+                    cb_math.setChecked(false);
+                    cb_mech.setChecked(false);
+                    cb_me.setChecked(false);
+                    cb_tce.setChecked(false);
+                    cb_mba.setChecked(false);
+
+                    apply.setVisibility(View.VISIBLE);
+                }
+                else if (isChecked == true) {
+                    apply.setVisibility(View.VISIBLE);
+                }
+                if (isChecked == false) {
+                    apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cb_tce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_mba.isChecked()))
+                {
+                    cb_arch.setChecked(false);
+                    cb_biotech.setChecked(false);
+                    cb_chemEgg.setChecked(false);
+                    cb_chem.setChecked(false);
+                    cb_civil.setChecked(false);
+                    cb_comApp.setChecked(false);
+                    cb_compEgg.setChecked(false);
+                    cb_eee.setChecked(false);
+                    cb_ece.setChecked(false);
+                    cb_iem.setChecked(false);
+                    cb_ise.setChecked(false);
+                    cb_eie.setChecked(false);
+                    cb_math.setChecked(false);
+                    cb_mech.setChecked(false);
+                    cb_me.setChecked(false);
+                    cb_phys.setChecked(false);
+                    cb_mba.setChecked(false);
+
+                    apply.setVisibility(View.VISIBLE);
+                }
+                else if (isChecked == true) {
+                    apply.setVisibility(View.VISIBLE);
+                }
+                if (isChecked == false) {
+                    apply.setVisibility(View.INVISIBLE);
+                }
+                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_day1.isChecked() || cb_day2.isChecked())
+                {
+                    apply.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        cb_mba.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
+                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
                         || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
                 {
                     cb_arch.setChecked(false);
@@ -654,6 +877,7 @@ public class FilterActivity extends AppCompatActivity {
                     cb_iem.setChecked(false);
                     cb_ise.setChecked(false);
                     cb_eie.setChecked(false);
+                    cb_math.setChecked(false);
                     cb_mech.setChecked(false);
                     cb_me.setChecked(false);
                     cb_phys.setChecked(false);
@@ -669,171 +893,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
                         cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
-                        || cb_day1.isChecked() || cb_day2.isChecked())
-                {
-                    apply.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        cb_mech.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
-                {
-                    cb_arch.setChecked(false);
-                    cb_biotech.setChecked(false);
-                    cb_chemEgg.setChecked(false);
-                    cb_chem.setChecked(false);
-                    cb_civil.setChecked(false);
-                    cb_comApp.setChecked(false);
-                    cb_compEgg.setChecked(false);
-                    cb_eee.setChecked(false);
-                    cb_ece.setChecked(false);
-                    cb_iem.setChecked(false);
-                    cb_ise.setChecked(false);
-                    cb_eie.setChecked(false);
-                    cb_math.setChecked(false);
-                    cb_me.setChecked(false);
-                    cb_phys.setChecked(false);
-                    cb_tce.setChecked(false);
-
-                    apply.setVisibility(View.VISIBLE);
-                }
-                else if (isChecked == true) {
-                    apply.setVisibility(View.VISIBLE);
-                }
-                if (isChecked == false) {
-                    apply.setVisibility(View.INVISIBLE);
-                }
-                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
-                        || cb_day1.isChecked() || cb_day2.isChecked())
-                {
-                    apply.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        cb_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_phys.isChecked() || cb_tce.isChecked()))
-                {
-                    cb_arch.setChecked(false);
-                    cb_biotech.setChecked(false);
-                    cb_chemEgg.setChecked(false);
-                    cb_chem.setChecked(false);
-                    cb_civil.setChecked(false);
-                    cb_comApp.setChecked(false);
-                    cb_compEgg.setChecked(false);
-                    cb_eee.setChecked(false);
-                    cb_ece.setChecked(false);
-                    cb_iem.setChecked(false);
-                    cb_ise.setChecked(false);
-                    cb_eie.setChecked(false);
-                    cb_math.setChecked(false);
-                    cb_mech.setChecked(false);
-                    cb_phys.setChecked(false);
-                    cb_tce.setChecked(false);
-
-                    apply.setVisibility(View.VISIBLE);
-                }
-                else if (isChecked == true) {
-                    apply.setVisibility(View.VISIBLE);
-                }
-                if (isChecked == false) {
-                    apply.setVisibility(View.INVISIBLE);
-                }
-                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
-                        || cb_day1.isChecked() || cb_day2.isChecked())
-                {
-                    apply.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        cb_phys.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_tce.isChecked()))
-                {
-                    cb_arch.setChecked(false);
-                    cb_biotech.setChecked(false);
-                    cb_chemEgg.setChecked(false);
-                    cb_chem.setChecked(false);
-                    cb_civil.setChecked(false);
-                    cb_comApp.setChecked(false);
-                    cb_compEgg.setChecked(false);
-                    cb_eee.setChecked(false);
-                    cb_ece.setChecked(false);
-                    cb_iem.setChecked(false);
-                    cb_ise.setChecked(false);
-                    cb_eie.setChecked(false);
-                    cb_math.setChecked(false);
-                    cb_mech.setChecked(false);
-                    cb_me.setChecked(false);
-                    cb_tce.setChecked(false);
-
-                    apply.setVisibility(View.VISIBLE);
-                }
-                else if (isChecked == true) {
-                    apply.setVisibility(View.VISIBLE);
-                }
-                if (isChecked == false) {
-                    apply.setVisibility(View.INVISIBLE);
-                }
-                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
-                        || cb_day1.isChecked() || cb_day2.isChecked())
-                {
-                    apply.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        cb_tce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == true && (cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked()))
-                {
-                    cb_arch.setChecked(false);
-                    cb_biotech.setChecked(false);
-                    cb_chemEgg.setChecked(false);
-                    cb_chem.setChecked(false);
-                    cb_civil.setChecked(false);
-                    cb_comApp.setChecked(false);
-                    cb_compEgg.setChecked(false);
-                    cb_eee.setChecked(false);
-                    cb_ece.setChecked(false);
-                    cb_iem.setChecked(false);
-                    cb_ise.setChecked(false);
-                    cb_eie.setChecked(false);
-                    cb_math.setChecked(false);
-                    cb_mech.setChecked(false);
-                    cb_me.setChecked(false);
-                    cb_phys.setChecked(false);
-
-                    apply.setVisibility(View.VISIBLE);
-                }
-                else if (isChecked == true) {
-                    apply.setVisibility(View.VISIBLE);
-                }
-                if (isChecked == false) {
-                    apply.setVisibility(View.INVISIBLE);
-                }
-                if(cb_arch.isChecked() || cb_biotech.isChecked() || cb_chemEgg.isChecked()|| cb_chem.isChecked()||cb_civil.isChecked()|| cb_comApp.isChecked()||
-                        cb_compEgg.isChecked()||cb_eee.isChecked()|| cb_ece.isChecked() || cb_iem.isChecked() || cb_ise.isChecked() || cb_eie.isChecked() || cb_math.isChecked()
-                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
+                        || cb_mech.isChecked() || cb_me.isChecked() || cb_phys.isChecked() || cb_tce.isChecked() || cb_mba.isChecked() || cb_events.isChecked() || cb_workshop.isChecked()
                         || cb_day1.isChecked() || cb_day2.isChecked())
                 {
                     apply.setVisibility(View.VISIBLE);
@@ -887,9 +947,13 @@ public class FilterActivity extends AppCompatActivity {
                     c="phys";
                 if(cb_me.isChecked()==true)
                     c="me";
+                if(cb_tce.isChecked()==true)
+                    c="tce";
+                if(cb_mba.isChecked()==true)
+                    c="mba";
 
                 EventsActivity.getInstance().finish();
-                Intent intent=new Intent(context,EventsActivity.class);
+                Intent intent=new Intent(context,FilteredEvents.class);
                 intent.putExtra("Activity","filter");
                 intent.putExtra("Category",a);
                 intent.putExtra("Day",b);

@@ -44,9 +44,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     ProgressDialog progressDoalog;
     private AppBarEventBinding binding;
     Data[] selectedData;
-    String cat;
-    String day;
-    String dept;
+
 
     public static final String PREF_KEY_FIRST_START = "com.heinrichreimersoftware.materialintro.demo.PREF_KEY_FIRST_START";
     public static final int REQUEST_CODE_INTRO = 1;
@@ -97,23 +95,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         navigationView.setCheckedItem(R.id.Events);
         e = this;
 
-        String x = getIntent().getStringExtra("Activity");
-        cat = getIntent().getStringExtra("Category");
-        day = getIntent().getStringExtra("Day");
-        dept = getIntent().getStringExtra("Department");
-
-        if(x == null)
-        {
-            x = "hell";
-        }
-        if (x.equalsIgnoreCase("filter")==true)
-        {
-            progressDoalog.dismiss();
-            filter();
-        }
-        else
-        {
-            manager.CallBack(new CallBack() {
+        manager.CallBack(new CallBack() {
                 @Override
                 public void success() {
                     CallMe();
@@ -135,7 +117,6 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
                 }
             });
         }
-    }
 
     private void populateListView(ArrayList<Data> data) {
         listView.setAdapter((new CustomAdapter(context,data)));
@@ -151,40 +132,6 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedData[0] = manager.DataWrapper.getData().get(position);
-                if(selectedData[0].getCategory().equalsIgnoreCase("event"))
-                    goToEventDetails(context,selectedData[0]);
-                else
-                    goToWorkshopDetails(context,selectedData[0]);
-            }
-        });
-    }
-    public void filter()
-    {
-//        Toast toast = Toast.makeText(EventsActivity.this, day+cat+dept, Toast.LENGTH_LONG);
-//        toast.show();
-        final ArrayList<Data> data1 = new ArrayList<Data>();
-        selectedData = new Data[1];
-
-        if(day.equalsIgnoreCase("day1"))
-        {
-            for(int i = 0;i<manager.DataWrapper.getData().size();i++) {
-                if (manager.DataWrapper.getData().get(i).getDay().equalsIgnoreCase("day1"))
-                    data1.add(manager.DataWrapper.getData().get(i));
-            }
-        }
-        if(day.equalsIgnoreCase("day2"))
-        {
-            for(int i = 0;i<manager.DataWrapper.getData().size();i++) {
-                if (manager.DataWrapper.getData().get(i).getDay().equalsIgnoreCase("day2"))
-                    data = manager.DataWrapper.getData();
-            }
-        }
-        listView = (ListView) findViewById(R.id.eventListView);
-        populateListView(data1);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedData[0] = data1.get(position);
                 if(selectedData[0].getCategory().equalsIgnoreCase("event"))
                     goToEventDetails(context,selectedData[0]);
                 else

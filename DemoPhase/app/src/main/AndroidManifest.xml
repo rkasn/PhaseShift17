@@ -70,10 +70,8 @@
         <activity
             android:name=".WorkshopDetail.WorkshopDetailActivity"
             android:label="Workshop Details"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".Events.EventsActivity">
-
-        </activity>
+            android:parentActivityName=".Events.EventsActivity"
+            android:theme="@style/AppTheme"></activity>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -82,7 +80,15 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
+        <activity
+            android:name=".FilteredEvents.FilteredEvents"
+            android:label="@string/title_activity_filtered_events"
+            android:parentActivityName=".Events.EventsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="phaseshift.com.demophase.Events.EventsActivity" />
+        </activity>
     </application>
 
 </manifest>
