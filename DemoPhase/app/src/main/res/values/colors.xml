@@ -25,4 +25,12 @@
     <color name="color_dark_custom_fragment_2">#303F9F</color>
     <color name="color_dark_canteen">#ebeef0</color>
     <color name="blackScreen">#000000</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="mid_gray">#605F64</color>
+    <color name="gray_text">#7F8285</color>
+    <color name="rim_color_gray">#B0B0B0</color>
+    <color name="center_text">#0A4958</color>
+    <color name="round_progress_blue">#01B6AD</color>
 </resources>
