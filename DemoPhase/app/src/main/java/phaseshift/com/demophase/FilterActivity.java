@@ -1,23 +1,37 @@
 package phaseshift.com.demophase;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import phaseshift.com.demophase.Events.EventsActivity;
+import phaseshift.com.demophase.Events.Interactor.Manager;
+import phaseshift.com.demophase.Events.Model.Data;
 import phaseshift.com.demophase.FilteredEvents.FilteredEvents;
 
 public class FilterActivity extends AppCompatActivity {
     Context context;
+    Data[] selectedData1;
+    public static Manager manager;
+    String cat;
+    String day;
+    String dept;
+    ArrayList<Data> dataDept;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +39,6 @@ public class FilterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_filter);
 
 //        final CompoundButton category=(CompoundButton) findViewById(R.id.Category);
-        RadioGroup day = (RadioGroup) findViewById(R.id.Day);
-        RadioGroup department = (RadioGroup) findViewById(R.id.Department);
         final Button apply = (Button) findViewById(R.id.applyBtn);
 
         final CheckBox cb_events = (CheckBox) findViewById(R.id.CB_events);
@@ -909,8 +921,6 @@ public class FilterActivity extends AppCompatActivity {
                     a="Event";
                 if(cb_workshop.isChecked()==true)
                     a="Workshop";
-
-
                 if(cb_day1.isChecked()==true)
                     b="day1";
                 if(cb_day2.isChecked()==true)
@@ -952,17 +962,234 @@ public class FilterActivity extends AppCompatActivity {
                 if(cb_mba.isChecked()==true)
                     c="mba";
 
-                EventsActivity.getInstance().finish();
-                Intent intent=new Intent(context,FilteredEvents.class);
-                intent.putExtra("Activity","filter");
-                intent.putExtra("Category",a);
-                intent.putExtra("Day",b);
-                intent.putExtra("Department",c);
-                startActivity(intent);
-                finish();
+                cat = a;
+                day = b;
+                dept = c;
 
+                filter();
+
+                if(dataDept.size() == 0)
+                {
+                    Toast.makeText(context,"No Such Event Exists",Toast.LENGTH_SHORT).show();
+                }else {
+                    EventsActivity.getInstance().finish();
+                    Intent intent = new Intent(context, FilteredEvents.class);
+                    intent.putParcelableArrayListExtra("data", dataDept);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
+    }
+
+    public void filter()
+    {
+//        Toast toast = Toast.makeText(EventsActivity.this, day+cat+dept, Toast.LENGTH_LONG);
+//        toast.show();
+        final ArrayList<Data> dataDay = new ArrayList<Data>();
+        selectedData1 = new Data[1];
+        manager=Manager.getInstance();
+
+        if(day.equalsIgnoreCase("day1"))
+        {
+            for(int i = 0;i<manager.DataWrapper.getData().size();i++) {
+                if (manager.DataWrapper.getData().get(i).getDay().equalsIgnoreCase("day1"))
+                    dataDay.add(manager.DataWrapper.getData().get(i));
+            }
+        }
+        else if(day.equalsIgnoreCase("day2"))
+        {
+            for(int i = 0;i<manager.DataWrapper.getData().size();i++) {
+                if (manager.DataWrapper.getData().get(i).getDay().equalsIgnoreCase("day2"))
+                    dataDay.add(manager.DataWrapper.getData().get(i));
+            }
+        }
+        else
+        {
+            for(int i = 0;i<manager.DataWrapper.getData().size();i++)
+            {
+                dataDay.add(manager.DataWrapper.getData().get(i));
+            }
+        }
+        ArrayList<Data> dataCat=new ArrayList<Data>();
+        if(cat.equalsIgnoreCase("event"))
+        {
+            for(int i=0;i<dataDay.size();i++)
+            {
+                if(dataDay.get(i).getCategory().equalsIgnoreCase("Event"))
+                    dataCat.add(dataDay.get(i));
+            }
+        }
+        else if(cat.equalsIgnoreCase("workshop"))
+        {
+            for(int i=0;i<dataDay.size();i++)
+            {
+                if(dataDay.get(i).getCategory().equalsIgnoreCase("Workshop"))
+                    dataCat.add(dataDay.get(i));
+            }
+        }
+        else
+        {
+            for(int i=0;i<dataDay.size();i++)
+            {
+                dataCat.add(dataDay.get(i));
+            }
+        }
+
+
+
+        dataDept=new ArrayList<Data>();
+        if(dept.equalsIgnoreCase("arch"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Architecture"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("biotech"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Biotechnology"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("ChemEgg"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Chemical Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("chem"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Chemistry"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("civil"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Civil Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("comapp"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("MCA"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("compegg"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Computer Science and Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("eee"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Electronics and Electrical Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("ece"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Electronics and Communication Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("iem"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Industrial Engineering and Management"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("ise"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Information Science and Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("eie"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Electronics and Instrumentation Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("Math"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Mathematics"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("Mech"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Mechanical Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("phys"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Physics"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("Me"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Medical Electronics"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("TCE"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("Telecommunication Engineering"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else if(dept.equalsIgnoreCase("Mba"))
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                if(dataCat.get(i).getDepartment().equalsIgnoreCase("MBA"))
+                    dataDept.add(dataCat.get(i));
+            }
+        }
+        else
+        {
+            for(int i=0;i<dataCat.size();i++)
+            {
+                dataDept.add(dataCat.get(i));
+            }
+        }
     }
 }

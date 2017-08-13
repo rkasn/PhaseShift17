@@ -15,4 +15,5 @@ public interface EventsRouter {
     public void goToAboutPS(Context context);
     public void goToEvents(Context context);
     public void goToEventDetails(Context context, Data event);
+    public void goToDeveloper(Context context);
 }

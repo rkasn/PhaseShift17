@@ -12,4 +12,5 @@ public interface AboutBMSRouter {
     public void goToTeam(Context context);
     public void goToAboutPS(Context context);
     public void goToEvents(Context context);
+    public void goToDeveloper(Context context);
 }

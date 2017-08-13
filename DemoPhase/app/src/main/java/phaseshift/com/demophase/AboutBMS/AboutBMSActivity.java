@@ -15,6 +15,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.Developer.DeveloperActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.DesAnimation;
 import phaseshift.com.demophase.Events.EventsActivity;
@@ -125,6 +126,9 @@ public class AboutBMSActivity extends AppCompatActivity
         else if (id == R.id.AboutPS) {
             goToAboutPS(context);
             finish();
+        }else if(id == R.id.Developer){
+            goToDeveloper(context);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -161,6 +165,11 @@ public class AboutBMSActivity extends AppCompatActivity
     @Override
     public void goToEvents(Context context) {
         Intent intent=new Intent(context, EventsActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void goToDeveloper(Context context) {
+        Intent intent=new Intent(context, DeveloperActivity.class);
         startActivity(intent);
     }
 }

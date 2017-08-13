@@ -1,37 +1,36 @@
-package phaseshift.com.demophase.AboutPS;
+package phaseshift.com.demophase.Developer;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import me.relex.circleindicator.CircleIndicator;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
-import phaseshift.com.demophase.Developer.DeveloperActivity;
-import phaseshift.com.demophase.Team.TeamActivity;
+import phaseshift.com.demophase.AboutBMS.AboutBMSRouter;
+import phaseshift.com.demophase.AboutPS.AboutPSActivity;
 import phaseshift.com.demophase.DesAnimation;
 import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
 import phaseshift.com.demophase.R;
+import phaseshift.com.demophase.Team.TeamActivity;
 
-public class AboutPSActivity extends AppCompatActivity
-        implements AboutPSRouter,NavigationView.OnNavigationItemSelectedListener {
+public class DeveloperActivity extends AppCompatActivity
+        implements AboutBMSRouter,NavigationView.OnNavigationItemSelectedListener {
     Context context;
-
+    SliderLayout imageSlider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_ps);
+        setContentView(R.layout.activity_developer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,37 +44,10 @@ public class AboutPSActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.AboutPS);
+        navigationView.setCheckedItem(R.id.Developer);
 
-        ViewPager pager = (ViewPager)findViewById(R.id.viewPager);
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
-        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        indicator.setViewPager(pager);
+
     }
-
-    private class MyPagerAdapter extends FragmentPagerAdapter {
-
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int pos) {
-            switch(pos) {
-
-                case 0: return FirstFragment.newInstance("FirstFragment, Instance 1");
-                case 1: return SecondFragment.newInstance("SecondFragment, Instance 1");
-                case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
-                default: return ThirdFragment.newInstance("ThirdFragment, Default");
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -90,7 +62,7 @@ public class AboutPSActivity extends AppCompatActivity
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.about, menu);
+//        getMenuInflater().inflate(R.menu.about_bm, menu);
 //        return true;
 //    }
 
@@ -133,7 +105,8 @@ public class AboutPSActivity extends AppCompatActivity
         else if (id == R.id.AboutPS) {
             goToAboutPS(context);
             finish();
-        }else if(id == R.id.Developer){
+        }
+        else if(id == R.id.Developer){
             goToDeveloper(context);
             finish();
         }
@@ -174,6 +147,7 @@ public class AboutPSActivity extends AppCompatActivity
         Intent intent=new Intent(context, EventsActivity.class);
         startActivity(intent);
     }
+
     @Override
     public void goToDeveloper(Context context) {
         Intent intent=new Intent(context, DeveloperActivity.class);

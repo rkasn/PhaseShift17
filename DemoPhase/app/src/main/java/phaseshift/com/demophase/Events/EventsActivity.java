@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.Developer.DeveloperActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.EventDetail.EventDetailActivity;
 import phaseshift.com.demophase.Events.Interactor.CallBack;
@@ -181,6 +182,9 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
         else if (id == R.id.AboutPS) {
             goToAboutPS(context);
             finish();
+        }else if(id == R.id.Developer){
+            goToDeveloper(context);
+            finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -271,6 +275,11 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
     {
         Intent intent = new Intent(context,WorkshopDetailActivity.class);
         intent.putExtra("event",data);
+        startActivity(intent);
+    }
+    @Override
+    public void goToDeveloper(Context context) {
+        Intent intent=new Intent(context, DeveloperActivity.class);
         startActivity(intent);
     }
 }

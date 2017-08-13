@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.Developer.DeveloperActivity;
 import phaseshift.com.demophase.Team.TeamActivity;
 import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.R;
@@ -134,6 +135,9 @@ public class MapsActivity extends AppCompatActivity
         else if (id == R.id.AboutPS) {
             goToAboutPS(context);
             finish();
+        }else if(id == R.id.Developer){
+            goToDeveloper(context);
+            finish();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -190,5 +194,10 @@ public class MapsActivity extends AppCompatActivity
         LatLng ll=new LatLng(lat,l);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ll,zoom);
         map.moveCamera(cameraUpdate);
+    }
+    @Override
+    public void goToDeveloper(Context context) {
+        Intent intent=new Intent(context, DeveloperActivity.class);
+        startActivity(intent);
     }
 }

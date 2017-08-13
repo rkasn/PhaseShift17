@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.Developer.DeveloperActivity;
 import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
 import phaseshift.com.demophase.R;
@@ -96,6 +97,9 @@ public class TeamActivity extends AppCompatActivity
         else if (id == R.id.AboutPS) {
             goToAboutPS(context);
             finish();
+        }else if(id == R.id.Developer){
+            goToDeveloper(context);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -132,6 +136,11 @@ public class TeamActivity extends AppCompatActivity
     @Override
     public void goToEvents(Context context) {
         Intent intent=new Intent(context, EventsActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void goToDeveloper(Context context) {
+        Intent intent=new Intent(context, DeveloperActivity.class);
         startActivity(intent);
     }
 }
