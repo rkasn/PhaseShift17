@@ -183,7 +183,7 @@ public class MapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap)
     {
         map=googleMap;
-        goToLocationZoom(12.9416079,77.566883,17);
+        goToLocationZoom(12.9416079,77.566883,15);
         if(marker != null)
             marker.remove();
         MarkerOptions options=new MarkerOptions().title("BMS College Of Engineering").position(new LatLng(12.9416079,77.566883));

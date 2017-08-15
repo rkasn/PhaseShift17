@@ -16,6 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import me.relex.circleindicator.CircleIndicator;
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 
@@ -33,6 +36,8 @@ import static phaseshift.com.demophase.R.id.viewPager;
 public class TeamActivity extends AppCompatActivity
         implements TeamRouter,NavigationView.OnNavigationItemSelectedListener {
     Context context;
+    ViewPager viewPager;
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,34 +57,60 @@ public class TeamActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.Team);
 
-        ViewPager pager1 = (ViewPager)findViewById(R.id.viewPager1);
-        pager1.setAdapter(new TeamActivity.MyPagerAdapter2(getSupportFragmentManager()));
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(pager1);
+        init();
     }
 
-    private class MyPagerAdapter2 extends FragmentPagerAdapter {
+    public void init()
+    {
+        viewPager = (ViewPager) findViewById(R.id.viewpager1);
+        setupViewPager(viewPager);
 
-        public MyPagerAdapter2(FragmentManager fm) {
-            super(fm);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+    }
+
+    public void setupViewPager(ViewPager viewPager)
+    {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+        FacultyFragment facultyFragment = new FacultyFragment();
+        adapter.addFragment(facultyFragment,"Faculty");
+
+        StudentFragment studentFragment = new StudentFragment();
+        adapter.addFragment(studentFragment,"Student");
+
+        viewPager.setAdapter(adapter);
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
         }
 
         @Override
-        public Fragment getItem(int pos) {
-            switch(pos) {
-
-                case 0: return FacultyFragment.newInstance("FirstFragment, Instance 1");
-                case 1: return StudentFragment.newInstance("SecondFragment, Instance 1");
-                default: return FacultyFragment.newInstance("ThirdFragment, Default");
-            }
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
         }
     }
-
 
     @Override
     public void onBackPressed() {
