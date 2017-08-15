@@ -4,19 +4,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import me.relex.circleindicator.CircleIndicator;
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
+
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
+import phaseshift.com.demophase.AboutPS.FirstFragment;
+import phaseshift.com.demophase.AboutPS.SecondFragment;
+import phaseshift.com.demophase.AboutPS.ThirdFragment;
 import phaseshift.com.demophase.Developer.DeveloperActivity;
 import phaseshift.com.demophase.Events.EventsActivity;
 import phaseshift.com.demophase.Map.MapsActivity;
 import phaseshift.com.demophase.R;
+
+import static phaseshift.com.demophase.R.id.viewPager;
 
 public class TeamActivity extends AppCompatActivity
         implements TeamRouter,NavigationView.OnNavigationItemSelectedListener {
@@ -39,7 +51,35 @@ public class TeamActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.Team);
+
+        ViewPager pager1 = (ViewPager)findViewById(R.id.viewPager1);
+        pager1.setAdapter(new TeamActivity.MyPagerAdapter2(getSupportFragmentManager()));
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(pager1);
     }
+
+    private class MyPagerAdapter2 extends FragmentPagerAdapter {
+
+        public MyPagerAdapter2(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int pos) {
+            switch(pos) {
+
+                case 0: return FacultyFragment.newInstance("FirstFragment, Instance 1");
+                case 1: return StudentFragment.newInstance("SecondFragment, Instance 1");
+                default: return FacultyFragment.newInstance("ThirdFragment, Default");
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+    }
+
 
     @Override
     public void onBackPressed() {

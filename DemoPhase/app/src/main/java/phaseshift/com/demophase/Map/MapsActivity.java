@@ -20,6 +20,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import phaseshift.com.demophase.AboutBMS.AboutBMSActivity;
 import phaseshift.com.demophase.AboutPS.AboutPSActivity;
@@ -32,6 +34,7 @@ public class MapsActivity extends AppCompatActivity
         implements MapRouter,NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
     Context context;
     GoogleMap map;
+    Marker marker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,6 +184,10 @@ public class MapsActivity extends AppCompatActivity
     {
         map=googleMap;
         goToLocationZoom(12.9416079,77.566883,17);
+        if(marker != null)
+            marker.remove();
+        MarkerOptions options=new MarkerOptions().title("BMS College Of Engineering").position(new LatLng(12.9416079,77.566883));
+        marker=map.addMarker(options);
     }
 
     private void goToLocation(double lat, double l)
@@ -194,6 +201,7 @@ public class MapsActivity extends AppCompatActivity
         LatLng ll=new LatLng(lat,l);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(ll,zoom);
         map.moveCamera(cameraUpdate);
+
     }
     @Override
     public void goToDeveloper(Context context) {
