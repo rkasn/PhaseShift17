@@ -201,7 +201,7 @@
                                     android:id="@+id/time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="1000" />
+                                    android:text="10:00 am" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -273,30 +273,63 @@
                             android:layout_height="match_parent"
                             android:layout_weight=".5"
                             android:paddingBottom="50dp"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".5">
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_reg" />
 
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@drawable/ic_reg" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="top"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="5dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Registration Fees" />
+
+                                    <TextView
+                                        android:id="@+id/reg_amt"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="1000" />
+                                </LinearLayout>
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:gravity="top"
-                                android:orientation="vertical"
-                                android:paddingLeft="5dp">
+                                android:layout_weight=".5">
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_participation" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Registration Fees" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="top"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="5dp">
 
-                                <TextView
-                                    android:id="@+id/reg_amt"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="1000" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Participation" />
+
+                                    <TextView
+                                        android:id="@+id/part"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Individual" />
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
 

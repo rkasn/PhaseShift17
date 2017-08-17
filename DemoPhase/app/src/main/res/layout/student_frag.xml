@@ -35,7 +35,8 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_alignParentLeft="true"
-                    android:src="@drawable/img3" />
+                    android:src="@drawable/karan_prasad_e"
+                    android:scaleType="centerCrop"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -48,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:textSize="20dp"
-                        android:text="Atul Bhushan"
+                        android:text="K. Karan Prasad"
                         android:textColor="@color/blackScreen" />
 
                     <TextView
@@ -56,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
-                        android:text="123457689"
+                        android:text="Member"
                         android:textColor="@color/blackScreen" />
                 </LinearLayout>
             </LinearLayout>
@@ -87,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
-                        android:text="Atul Bhushan"
+                        android:text="T. Mithun"
                         android:textColor="@color/blackScreen" />
 
                     <TextView
@@ -95,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignStart="@+id/name1"
-                        android:text="123457689"
+                        android:text="Member"
                         android:textSize="18dp"
                         android:textColor="@color/blackScreen" />
                 </LinearLayout>

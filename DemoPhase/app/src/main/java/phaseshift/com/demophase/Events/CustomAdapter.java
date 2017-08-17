@@ -61,6 +61,7 @@ public class CustomAdapter extends BaseAdapter{
         }
 
         holder.header.setText(event.getName_of_event());
+        holder.subText.setText(event.getDepartment());
         return convertView;
     }
 

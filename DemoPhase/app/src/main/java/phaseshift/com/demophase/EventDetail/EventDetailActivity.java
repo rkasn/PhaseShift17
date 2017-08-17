@@ -22,6 +22,7 @@ public class EventDetailActivity extends AppCompatActivity {
     TextView desc;
     TextView winner;
     TextView runnerUp;
+    TextView reg;
     TextView venue;
     TextView date;
     TextView time;
@@ -29,6 +30,7 @@ public class EventDetailActivity extends AppCompatActivity {
     TextView num1;
     TextView coord2;
     TextView num2;
+    TextView participate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class EventDetailActivity extends AppCompatActivity {
         eventName = (TextView) findViewById(R.id.event_name);
         dept = (TextView) findViewById(R.id.dept);
         desc = (TextView) findViewById(R.id.desc);
+        reg = (TextView) findViewById(R.id.reg_amt);
         winner = (TextView) findViewById(R.id.winner);
         runnerUp = (TextView) findViewById(R.id.runner_up);
         venue = (TextView) findViewById(R.id.venue);
@@ -54,6 +57,7 @@ public class EventDetailActivity extends AppCompatActivity {
         coord2 = (TextView) findViewById(R.id.coord_2);
         num1 = (TextView) findViewById(R.id.num_1);
         num2 = (TextView) findViewById(R.id.num_2);
+        participate = (TextView) findViewById(R.id.part);
         imageSlider = (SliderLayout) findViewById(R.id.slider);
 
         DefaultSliderView SliderView1 = new DefaultSliderView(this);
@@ -78,6 +82,7 @@ public class EventDetailActivity extends AppCompatActivity {
         eventName.setText(data.getName_of_event());
         dept.setText(data.getDepartment());
         desc.setText(data.getDescription());
+        reg.setText(data.getRegistration_amt());
         winner.setText(data.getWinner());
         runnerUp.setText(data.getRunner_up());
         venue.setText(data.getVenue());
@@ -87,5 +92,6 @@ public class EventDetailActivity extends AppCompatActivity {
         num1.setText(data.getPhone_one());
         coord2.setText(data.getCoodinator_two());
         num2.setText(data.getPhone_two());
+        participate.setText(data.getParticipation());
     }
 }

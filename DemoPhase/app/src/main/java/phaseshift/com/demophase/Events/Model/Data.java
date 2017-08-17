@@ -57,6 +57,17 @@ public class Data implements Parcelable{
     @SerializedName("phone_two")
     @Expose
     private String phone_two;
+    @SerializedName("participation")
+    @Expose
+    private String participation;
+
+    public String getParticipation() {
+        return participation;
+    }
+
+    public void setParticipation(String participation) {
+        this.participation = participation;
+    }
 
     public String getCategory() {
         return category;
@@ -171,6 +182,9 @@ public class Data implements Parcelable{
     }
 
 
+    public Data() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -192,9 +206,7 @@ public class Data implements Parcelable{
         dest.writeString(this.phone_one);
         dest.writeString(this.coodinator_two);
         dest.writeString(this.phone_two);
-    }
-
-    public Data() {
+        dest.writeString(this.participation);
     }
 
     protected Data(Parcel in) {
@@ -212,6 +224,7 @@ public class Data implements Parcelable{
         this.phone_one = in.readString();
         this.coodinator_two = in.readString();
         this.phone_two = in.readString();
+        this.participation = in.readString();
     }
 
     public static final Creator<Data> CREATOR = new Creator<Data>() {

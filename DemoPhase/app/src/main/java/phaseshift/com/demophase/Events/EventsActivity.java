@@ -62,7 +62,7 @@ public class EventsActivity extends AppCompatActivity implements EventsRouter,Na
 
         progressDoalog = new ProgressDialog(EventsActivity.this);
         progressDoalog.setMessage("Its loading....");
-        progressDoalog.setTitle("ProgressDialog bar example");
+        progressDoalog.setTitle("Please Wait...");
         progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDoalog.show();
         binding = DataBindingUtil.setContentView(this, R.layout.app_bar_event);
